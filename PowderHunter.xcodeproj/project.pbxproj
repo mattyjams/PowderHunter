@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		8668A30718ADF05000211EAC /* OpenSnowClient.m in Sources */ = {isa = PBXBuildFile; fileRef = 8668A30618ADF05000211EAC /* OpenSnowClient.m */; };
+		8668A30B18ADF1B900211EAC /* SnoCountryClient.m in Sources */ = {isa = PBXBuildFile; fileRef = 8668A30A18ADF1B900211EAC /* SnoCountryClient.m */; };
 		86FFF3D7189D85B800BF1185 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 86FFF3D6189D85B800BF1185 /* Foundation.framework */; };
 		86FFF3D9189D85B800BF1185 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 86FFF3D8189D85B800BF1185 /* CoreGraphics.framework */; };
 		86FFF3DB189D85B800BF1185 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 86FFF3DA189D85B800BF1185 /* UIKit.framework */; };
@@ -37,6 +38,8 @@
 		716E767BAF8F4C6D8F9EDF50 /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
 		8668A30518ADF05000211EAC /* OpenSnowClient.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OpenSnowClient.h; sourceTree = "<group>"; };
 		8668A30618ADF05000211EAC /* OpenSnowClient.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = OpenSnowClient.m; sourceTree = "<group>"; };
+		8668A30918ADF1B900211EAC /* SnoCountryClient.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SnoCountryClient.h; sourceTree = "<group>"; };
+		8668A30A18ADF1B900211EAC /* SnoCountryClient.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SnoCountryClient.m; sourceTree = "<group>"; };
 		86FFF3D3189D85B800BF1185 /* PowderHunter.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = PowderHunter.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		86FFF3D6189D85B800BF1185 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		86FFF3D8189D85B800BF1185 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
@@ -90,6 +93,15 @@
 			name = OpenSnowAPI;
 			sourceTree = "<group>";
 		};
+		8668A30818ADF18B00211EAC /* SnoCountryAPI */ = {
+			isa = PBXGroup;
+			children = (
+				8668A30918ADF1B900211EAC /* SnoCountryClient.h */,
+				8668A30A18ADF1B900211EAC /* SnoCountryClient.m */,
+			);
+			name = SnoCountryAPI;
+			sourceTree = "<group>";
+		};
 		86FFF3CA189D85B800BF1185 = {
 			isa = PBXGroup;
 			children = (
@@ -125,6 +137,7 @@
 		86FFF3DC189D85B800BF1185 /* PowderHunter */ = {
 			isa = PBXGroup;
 			children = (
+				8668A30818ADF18B00211EAC /* SnoCountryAPI */,
 				8668A30418ADF03D00211EAC /* OpenSnowAPI */,
 				86FFF3E5189D85B800BF1185 /* AppDelegate.h */,
 				86FFF3E6189D85B800BF1185 /* AppDelegate.m */,
@@ -293,6 +306,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				8668A30B18ADF1B900211EAC /* SnoCountryClient.m in Sources */,
 				86FFF3E7189D85B800BF1185 /* AppDelegate.m in Sources */,
 				8668A30718ADF05000211EAC /* OpenSnowClient.m in Sources */,
 				86FFF3E3189D85B800BF1185 /* main.m in Sources */,

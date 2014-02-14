@@ -40,9 +40,9 @@ NSString * const OPENSNOW_API_KEY = @"<apikey>";
     return self;
 }
 
-- (void)getLocationIdsForState:(NSString *)state
-                       success:(void (^)(NSURLSessionDataTask *task, id responseObject))success
-                       failure:(void (^)(NSURLSessionDataTask *task, NSError *error))failure
+- (void)getLocationIdsWithState:(NSString *)state
+                        success:(void (^)(NSURLSessionDataTask *task, id responseObject))success
+                        failure:(void (^)(NSURLSessionDataTask *task, NSError *error))failure
 {
     NSString *getPath = @"getLocationIds.php";
     NSDictionary *params = @{@"apikey": self.apiKey,

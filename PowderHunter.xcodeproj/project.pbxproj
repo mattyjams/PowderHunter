@@ -9,6 +9,13 @@
 /* Begin PBXBuildFile section */
 		8668A30718ADF05000211EAC /* OpenSnowClient.m in Sources */ = {isa = PBXBuildFile; fileRef = 8668A30618ADF05000211EAC /* OpenSnowClient.m */; };
 		8668A30B18ADF1B900211EAC /* SnoCountryClient.m in Sources */ = {isa = PBXBuildFile; fileRef = 8668A30A18ADF1B900211EAC /* SnoCountryClient.m */; };
+		867026F118B13959002C9D96 /* ResortsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 867026EF18B13959002C9D96 /* ResortsViewController.m */; };
+		867026F218B13959002C9D96 /* ResortsViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 867026F018B13959002C9D96 /* ResortsViewController.xib */; };
+		867026F618B139EC002C9D96 /* Resort.m in Sources */ = {isa = PBXBuildFile; fileRef = 867026F518B139EC002C9D96 /* Resort.m */; };
+		8670270118B1444C002C9D96 /* ResortCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8670270018B1444C002C9D96 /* ResortCell.xib */; };
+		8670270418B1445A002C9D96 /* ResortCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 8670270318B1445A002C9D96 /* ResortCell.m */; };
+		8670270818B146BF002C9D96 /* ResortDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 8670270618B146BF002C9D96 /* ResortDetailViewController.m */; };
+		8670270918B146BF002C9D96 /* ResortDetailViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8670270718B146BF002C9D96 /* ResortDetailViewController.xib */; };
 		86FFF3D7189D85B800BF1185 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 86FFF3D6189D85B800BF1185 /* Foundation.framework */; };
 		86FFF3D9189D85B800BF1185 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 86FFF3D8189D85B800BF1185 /* CoreGraphics.framework */; };
 		86FFF3DB189D85B800BF1185 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 86FFF3DA189D85B800BF1185 /* UIKit.framework */; };
@@ -40,6 +47,17 @@
 		8668A30618ADF05000211EAC /* OpenSnowClient.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = OpenSnowClient.m; sourceTree = "<group>"; };
 		8668A30918ADF1B900211EAC /* SnoCountryClient.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SnoCountryClient.h; sourceTree = "<group>"; };
 		8668A30A18ADF1B900211EAC /* SnoCountryClient.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SnoCountryClient.m; sourceTree = "<group>"; };
+		867026EE18B13959002C9D96 /* ResortsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ResortsViewController.h; sourceTree = "<group>"; };
+		867026EF18B13959002C9D96 /* ResortsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ResortsViewController.m; sourceTree = "<group>"; };
+		867026F018B13959002C9D96 /* ResortsViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ResortsViewController.xib; sourceTree = "<group>"; };
+		867026F418B139EC002C9D96 /* Resort.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Resort.h; sourceTree = "<group>"; };
+		867026F518B139EC002C9D96 /* Resort.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Resort.m; sourceTree = "<group>"; };
+		8670270018B1444C002C9D96 /* ResortCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ResortCell.xib; sourceTree = "<group>"; };
+		8670270218B1445A002C9D96 /* ResortCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ResortCell.h; sourceTree = "<group>"; };
+		8670270318B1445A002C9D96 /* ResortCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ResortCell.m; sourceTree = "<group>"; };
+		8670270518B146BF002C9D96 /* ResortDetailViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ResortDetailViewController.h; sourceTree = "<group>"; };
+		8670270618B146BF002C9D96 /* ResortDetailViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ResortDetailViewController.m; sourceTree = "<group>"; };
+		8670270718B146BF002C9D96 /* ResortDetailViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ResortDetailViewController.xib; sourceTree = "<group>"; };
 		86FFF3D3189D85B800BF1185 /* PowderHunter.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = PowderHunter.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		86FFF3D6189D85B800BF1185 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		86FFF3D8189D85B800BF1185 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
@@ -102,6 +120,38 @@
 			name = SnoCountryAPI;
 			sourceTree = "<group>";
 		};
+		867026ED18B13923002C9D96 /* ViewControllers */ = {
+			isa = PBXGroup;
+			children = (
+				867026EE18B13959002C9D96 /* ResortsViewController.h */,
+				867026EF18B13959002C9D96 /* ResortsViewController.m */,
+				867026F018B13959002C9D96 /* ResortsViewController.xib */,
+				8670270518B146BF002C9D96 /* ResortDetailViewController.h */,
+				8670270618B146BF002C9D96 /* ResortDetailViewController.m */,
+				8670270718B146BF002C9D96 /* ResortDetailViewController.xib */,
+			);
+			name = ViewControllers;
+			sourceTree = "<group>";
+		};
+		867026F318B139DC002C9D96 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				867026F418B139EC002C9D96 /* Resort.h */,
+				867026F518B139EC002C9D96 /* Resort.m */,
+			);
+			name = Model;
+			sourceTree = "<group>";
+		};
+		867026F718B14380002C9D96 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				8670270218B1445A002C9D96 /* ResortCell.h */,
+				8670270318B1445A002C9D96 /* ResortCell.m */,
+				8670270018B1444C002C9D96 /* ResortCell.xib */,
+			);
+			name = Views;
+			sourceTree = "<group>";
+		};
 		86FFF3CA189D85B800BF1185 = {
 			isa = PBXGroup;
 			children = (
@@ -137,6 +187,9 @@
 		86FFF3DC189D85B800BF1185 /* PowderHunter */ = {
 			isa = PBXGroup;
 			children = (
+				867026F718B14380002C9D96 /* Views */,
+				867026F318B139DC002C9D96 /* Model */,
+				867026ED18B13923002C9D96 /* ViewControllers */,
 				8668A30818ADF18B00211EAC /* SnoCountryAPI */,
 				8668A30418ADF03D00211EAC /* OpenSnowAPI */,
 				86FFF3E5189D85B800BF1185 /* AppDelegate.h */,
@@ -253,7 +306,10 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				867026F218B13959002C9D96 /* ResortsViewController.xib in Resources */,
 				86FFF3E1189D85B800BF1185 /* InfoPlist.strings in Resources */,
+				8670270918B146BF002C9D96 /* ResortDetailViewController.xib in Resources */,
+				8670270118B1444C002C9D96 /* ResortCell.xib in Resources */,
 				86FFF3E9189D85B800BF1185 /* Images.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -306,10 +362,14 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				8670270818B146BF002C9D96 /* ResortDetailViewController.m in Sources */,
+				867026F618B139EC002C9D96 /* Resort.m in Sources */,
 				8668A30B18ADF1B900211EAC /* SnoCountryClient.m in Sources */,
+				867026F118B13959002C9D96 /* ResortsViewController.m in Sources */,
 				86FFF3E7189D85B800BF1185 /* AppDelegate.m in Sources */,
 				8668A30718ADF05000211EAC /* OpenSnowClient.m in Sources */,
 				86FFF3E3189D85B800BF1185 /* main.m in Sources */,
+				8670270418B1445A002C9D96 /* ResortCell.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

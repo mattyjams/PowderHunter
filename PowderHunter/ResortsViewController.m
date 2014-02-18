@@ -14,9 +14,11 @@
 
 static NSString *ResortCellIdentifier = @"ResortCell";
 
+static NSString *const FavoriteResortsUserDefaultsKey = @"favoriteResorts";
+
 @interface ResortsViewController ()
 
-@property (strong, nonatomic) NSArray *resorts; // of Resort
+@property (strong, nonatomic) NSMutableArray *favoriteResorts; // of Resort
 
 @end
 
@@ -48,61 +50,106 @@ static NSString *ResortCellIdentifier = @"ResortCell";
     
     UINib *resortCellNib = [UINib nibWithNibName:ResortCellIdentifier bundle:nil];
     [self.tableView registerNib:resortCellNib forCellReuseIdentifier:ResortCellIdentifier];
+    
+    self.favoriteResorts = [self loadFavoriteResorts];
+    [self updateDataForResorts:self.favoriteResorts];
+    
+    self.navigationItem.leftBarButtonItem = self.editButtonItem;
+}
+
+- (NSMutableArray *)loadFavoriteResorts
+{
+    NSMutableArray *array;
+    
+    NSData *data = [[NSUserDefaults standardUserDefaults] objectForKey:FavoriteResortsUserDefaultsKey];
+    if (data != nil)
+    {
+        array = [NSMutableArray arrayWithArray:[NSKeyedUnarchiver unarchiveObjectWithData:data]];
+    }
+    
+    if (array == nil)
+    {
+        array = [[NSMutableArray alloc] init];
+    }
+    
+    return array;
+}
+
+- (void)saveFavoriteResorts
+{
+    NSData *data = [NSKeyedArchiver archivedDataWithRootObject:self.favoriteResorts];
+    NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
+    [defaults setObject:data forKey:FavoriteResortsUserDefaultsKey];
+    [defaults synchronize];
 }
 
 - (void)loadResorts
 {
     [[OpenSnowClient instance] getLocationIdsWithState:@"CA"
                                                success:^(NSURLSessionDataTask *task, id responseObject) {
-                                                   self.resorts = [Resort resortsWithArray:[responseObject valueForKey:@"location"]];
+                                                   self.favoriteResorts = [Resort resortsWithArray:[responseObject valueForKey:@"location"]];
                                                    [self.tableView reloadData];
                                                } failure:^(NSURLSessionDataTask *task, NSError *error) {
                                                    NSLog(@"error: %@", error);
                                                }];
 }
 
+- (void)updateDataForResorts:(NSArray *)resorts
+{
+    NSMutableArray *resortIds = [NSMutableArray arrayWithCapacity:resorts.count];
+    for (Resort *resort in resorts) {
+        [resortIds addObject:resort.openSnowID];
+    }
+    
+    [[OpenSnowClient instance] getLocationDataWithIds:resortIds
+                                              success:^(NSURLSessionDataTask *task, id responseObject) {
+                                                  NSLog(@"responseObject: %@", responseObject);
+                                              } failure:^(NSURLSessionDataTask *task, NSError *error) {
+                                                  NSLog(@"error: %@", error);
+                                              }];
+}
+
 #pragma mark - Table view data source
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
-    return self.resorts.count;
+    return self.favoriteResorts.count;
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
     ResortCell *cell = [tableView dequeueReusableCellWithIdentifier:ResortCellIdentifier
                                                        forIndexPath:indexPath];
-    cell.resort = self.resorts[indexPath.row];
+    cell.resort = self.favoriteResorts[indexPath.row];
 
     return cell;
 }
 
-/*
-// Override to support editing the table view.
 - (void)tableView:(UITableView *)tableView commitEditingStyle:(UITableViewCellEditingStyle)editingStyle forRowAtIndexPath:(NSIndexPath *)indexPath
 {
     if (editingStyle == UITableViewCellEditingStyleDelete) {
         // Delete the row from the data source
+        [self.favoriteResorts removeObjectAtIndex:indexPath.row];
+        [self saveFavoriteResorts];
         [tableView deleteRowsAtIndexPaths:@[indexPath] withRowAnimation:UITableViewRowAnimationFade];
-    }   
-    else if (editingStyle == UITableViewCellEditingStyleInsert) {
-        // Create a new instance of the appropriate class, insert it into the array, and add a new row to the table view
-    }   
+    }
 }
-*/
 
-/*
-// Override to support rearranging the table view.
 - (void)tableView:(UITableView *)tableView moveRowAtIndexPath:(NSIndexPath *)fromIndexPath toIndexPath:(NSIndexPath *)toIndexPath
 {
+    Resort *resort = self.favoriteResorts[fromIndexPath.row];
+    [self.favoriteResorts removeObjectAtIndex:fromIndexPath.row];
+    [self.favoriteResorts insertObject:resort atIndex:toIndexPath.row];
+    [self saveFavoriteResorts];
+    
+    [self.tableView reloadData];
 }
-*/
 
 #pragma mark - Table view delegate
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
     ResortDetailViewController *resortVC = [[ResortDetailViewController alloc] init];
-    resortVC.resort = self.resorts[indexPath.row];
+    resortVC.resort = self.favoriteResorts[indexPath.row];
     [self.navigationController pushViewController:resortVC animated:YES];
     
     [tableView deselectRowAtIndexPath:indexPath animated:YES];

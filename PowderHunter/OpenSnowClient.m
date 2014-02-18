@@ -10,7 +10,7 @@
 #import <AFNetworking.h>
 
 NSString * const OPENSNOW_BASE_URL = @"http://opensnow.com/api/";
-NSString * const OPENSNOW_API_KEY = @"<apikey>";
+NSString * const OPENSNOW_API_KEY = @"mrjz";
 
 @interface OpenSnowClient ()
 

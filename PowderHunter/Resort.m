@@ -7,6 +7,7 @@
 //
 
 #import "Resort.h"
+#import "SnoCountryClient.h"
 
 @interface Resort ()
 
@@ -14,6 +15,15 @@
 @property (strong, nonatomic, readwrite) NSNumber *snoCountryID;
 
 @property (strong, nonatomic, readwrite) NSString *name;
+
+@property (nonatomic, readwrite) BOOL loadedDetail;
+
+@property (strong, nonatomic, readwrite) NSString *currentConditions;
+@property (strong, nonatomic, readwrite) NSNumber *currentLow;
+@property (strong, nonatomic, readwrite) NSNumber *currentHigh;
+@property (strong, nonatomic, readwrite) NSNumber *twoDayTotal;
+@property (strong, nonatomic, readwrite) NSNumber *baseDepth;
+@property (strong, nonatomic, readwrite) NSString *currentSnow;
 
 @end
 
@@ -32,6 +42,7 @@
 {
     self = [super init];
     if (self) {
+        self.loadedDetail = NO;
         self.name = [dict objectForKey:@"name"];
         
         NSString *idString = [dict objectForKey:@"id"];
@@ -47,6 +58,42 @@
 {
     return [NSString stringWithFormat:@"Resort Name: %@ (OpenSnowID: %@, SnoCountryID: %@)",
             self.name, self.openSnowID, self.snoCountryID];
+}
+
+- (void) loadDetailsWithCallback:(void(^)(bool success)) callback
+{
+    if (self.loadedDetail == false) {
+        // would probably be best to batch all these calls ...
+        [[SnoCountryClient instance] getConditionsDetailWithResortId:self.snoCountryID
+                                    success: ^(NSURLSessionDataTask *task, id responseObject) {
+                                        sleep(2);
+                                        NSArray* arr = [responseObject objectForKey:@"items"];
+                                        // only wanted 1 resort, so current resort is in slot 0
+                                        NSDictionary *resortDetail = arr[0];
+                                        self.currentConditions = [resortDetail objectForKey:@"weatherToday_Condition"];
+                                        self.currentLow = [NSNumber numberWithInt:[[resortDetail objectForKey:@"weatherToday_Temperature_Low"] integerValue]];
+                                        self.currentHigh = [NSNumber numberWithInt:[[resortDetail objectForKey:@"weatherToday_Temperature_High"] integerValue]];
+                                        self.currentSnow = [resortDetail objectForKey:@"primarySurfaceCondition"];
+                                        self.twoDayTotal = [NSNumber numberWithInt:[[resortDetail objectForKey:@"snowLast48Hours"] integerValue]];
+                                        self.baseDepth = [NSNumber numberWithInt:[[resortDetail objectForKey:@"avgBaseDepthMax"] integerValue]];
+                                        
+                                        
+                                        self.loadedDetail = true;
+                                        if(callback) {
+                                            callback(true);
+                                        }
+                                    }
+                                    failure:^(NSURLSessionDataTask *task, NSError *error) {
+                                        NSLog(@"Error with resort %@", self.name);
+                                        if(callback) {
+                                            callback(false);
+                                        }
+                                    }];
+    } else {
+        if (callback) {
+            callback(true);
+        }
+    }
 }
 
 @end

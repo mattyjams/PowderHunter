@@ -15,8 +15,17 @@
 
 @property (strong, nonatomic, readonly) NSString *name;
 
+@property (strong, nonatomic, readonly) NSString *currentConditions;
+@property (strong, nonatomic, readonly) NSNumber *currentLow;
+@property (strong, nonatomic, readonly) NSNumber *currentHigh;
+@property (strong, nonatomic, readonly) NSNumber *twoDayTotal;
+@property (strong, nonatomic, readonly) NSNumber *baseDepth;
+@property (strong, nonatomic, readonly) NSString *currentSnow;
+
 + (NSMutableArray *)resortsWithArray:(NSArray *)array;
 
 - (id)initWithDictionary:(NSDictionary *)dict;
+
+- (void) loadDetailsWithCallback:(void(^)(bool success)) callback;
 
 @end

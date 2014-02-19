@@ -53,8 +53,18 @@ NSString * const SNOCOUNRTY_API_KEY = @"SnoCountry.example";
 {
     NSString *getPath = @"getResortList.php";
     NSDictionary *params = @{@"apiKey": self.apiKey,
-                             @"output": @"json",
-                             @"states": [states componentsJoinedByString:@","]};
+                             @"states": [states componentsJoinedByString:@","],
+                             @"resortType":@"alpine",
+                             @"output": @"json"};
+    [self GET:getPath parameters:params success:success failure:failure];
+}
+
+- (void)getConditionsDetailWithResortId:(NSNumber *)resortId success:(void (^)(NSURLSessionDataTask *, id))success failure:(void (^)(NSURLSessionDataTask *, NSError *))failure
+{
+    NSString *getPath = @"conditions.php";
+    NSDictionary *params = @{@"apiKey": self.apiKey,
+                             @"ids": resortId,
+                             @"output": @"json"};
     [self GET:getPath parameters:params success:success failure:failure];
 }
 

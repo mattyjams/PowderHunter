@@ -16,6 +16,7 @@
 		8670270418B1445A002C9D96 /* ResortCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 8670270318B1445A002C9D96 /* ResortCell.m */; };
 		8670270818B146BF002C9D96 /* ResortDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 8670270618B146BF002C9D96 /* ResortDetailViewController.m */; };
 		8670270918B146BF002C9D96 /* ResortDetailViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8670270718B146BF002C9D96 /* ResortDetailViewController.xib */; };
+		86934AA118B3374C00A4BA25 /* Temperature.m in Sources */ = {isa = PBXBuildFile; fileRef = 86934AA018B3374C00A4BA25 /* Temperature.m */; };
 		86FFF3D7189D85B800BF1185 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 86FFF3D6189D85B800BF1185 /* Foundation.framework */; };
 		86FFF3D9189D85B800BF1185 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 86FFF3D8189D85B800BF1185 /* CoreGraphics.framework */; };
 		86FFF3DB189D85B800BF1185 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 86FFF3DA189D85B800BF1185 /* UIKit.framework */; };
@@ -58,6 +59,8 @@
 		8670270518B146BF002C9D96 /* ResortDetailViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ResortDetailViewController.h; sourceTree = "<group>"; };
 		8670270618B146BF002C9D96 /* ResortDetailViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ResortDetailViewController.m; sourceTree = "<group>"; };
 		8670270718B146BF002C9D96 /* ResortDetailViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ResortDetailViewController.xib; sourceTree = "<group>"; };
+		86934A9F18B3374C00A4BA25 /* Temperature.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Temperature.h; sourceTree = "<group>"; };
+		86934AA018B3374C00A4BA25 /* Temperature.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Temperature.m; sourceTree = "<group>"; };
 		86FFF3D3189D85B800BF1185 /* PowderHunter.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = PowderHunter.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		86FFF3D6189D85B800BF1185 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		86FFF3D8189D85B800BF1185 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
@@ -138,6 +141,8 @@
 			children = (
 				867026F418B139EC002C9D96 /* Resort.h */,
 				867026F518B139EC002C9D96 /* Resort.m */,
+				86934A9F18B3374C00A4BA25 /* Temperature.h */,
+				86934AA018B3374C00A4BA25 /* Temperature.m */,
 			);
 			name = Model;
 			sourceTree = "<group>";
@@ -368,6 +373,7 @@
 				867026F118B13959002C9D96 /* ResortsViewController.m in Sources */,
 				86FFF3E7189D85B800BF1185 /* AppDelegate.m in Sources */,
 				8668A30718ADF05000211EAC /* OpenSnowClient.m in Sources */,
+				86934AA118B3374C00A4BA25 /* Temperature.m in Sources */,
 				86FFF3E3189D85B800BF1185 /* main.m in Sources */,
 				8670270418B1445A002C9D96 /* ResortCell.m in Sources */,
 			);

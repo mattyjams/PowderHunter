@@ -8,7 +8,7 @@
 
 #import <Foundation/Foundation.h>
 
-@interface Resort : NSObject
+@interface Resort : NSObject <NSCoding>
 
 @property (strong, nonatomic, readonly) NSNumber *openSnowID;
 @property (strong, nonatomic, readonly) NSNumber *snoCountryID;

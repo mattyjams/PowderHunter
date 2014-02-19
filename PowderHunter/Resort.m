@@ -9,6 +9,10 @@
 #import "Resort.h"
 #import "SnoCountryClient.h"
 
+static NSString *const OpenSnowIDCoderKey = @"openSnowID";
+static NSString *const SnoCountryIDCoderKey = @"snoCountryID";
+static NSString *const NameCoderKey = @"name";
+
 @interface Resort ()
 
 @property (strong, nonatomic, readwrite) NSNumber *openSnowID;
@@ -52,6 +56,24 @@
         self.snoCountryID = [NSNumber numberWithInt:[idString integerValue]];
     }
     return self;
+}
+
+- (id)initWithCoder:(NSCoder *)aDecoder
+{
+    self = [super init];
+    if (self) {
+        self.openSnowID = [aDecoder decodeObjectForKey:OpenSnowIDCoderKey];
+        self.snoCountryID = [aDecoder decodeObjectForKey:SnoCountryIDCoderKey];
+        self.name = [aDecoder decodeObjectForKey:NameCoderKey];
+    }
+    return self;
+}
+
+- (void)encodeWithCoder:(NSCoder *)aCoder
+{
+    [aCoder encodeObject:self.openSnowID forKey:OpenSnowIDCoderKey];
+    [aCoder encodeObject:self.snoCountryID forKey:SnoCountryIDCoderKey];
+    [aCoder encodeObject:self.name forKey:NameCoderKey];
 }
 
 - (NSString *)description

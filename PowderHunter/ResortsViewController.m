@@ -12,6 +12,7 @@
 #import "Resort.h"
 #import "ResortCell.h"
 #import "ResortDetailViewController.h"
+#import "AddResortsViewController.h"
 
 static NSString *ResortCellIdentifier = @"ResortCell";
 
@@ -56,6 +57,10 @@ static NSString *const FavoriteResortsUserDefaultsKey = @"favoriteResorts";
     [self updateDataForResorts:self.favoriteResorts];
     
     self.navigationItem.leftBarButtonItem = self.editButtonItem;
+
+    self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemAdd
+                                                                                           target:self
+                                                                                           action:@selector(onAddButton)];
 }
 
 - (NSMutableArray *)loadFavoriteResorts
@@ -154,6 +159,11 @@ static NSString *const FavoriteResortsUserDefaultsKey = @"favoriteResorts";
     [self.navigationController pushViewController:resortVC animated:YES];
     
     [tableView deselectRowAtIndexPath:indexPath animated:YES];
+}
+
+- (void)onAddButton {
+    AddResortsViewController *addVC = [[AddResortsViewController alloc] init];
+    [self.navigationController pushViewController:addVC animated:YES];
 }
 
 @end

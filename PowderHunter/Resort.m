@@ -47,13 +47,21 @@ static NSString *const NameCoderKey = @"name";
     self = [super init];
     if (self) {
         self.loadedDetail = NO;
-        self.name = [dict objectForKey:@"name"];
-        
-        NSString *idString = [dict objectForKey:@"id"];
-        self.openSnowID = [NSNumber numberWithInt:[idString integerValue]];
 
-        idString = [dict objectForKey:@"snowid"];
-        self.snoCountryID = [NSNumber numberWithInt:[idString integerValue]];
+        id paramObject = [dict objectForKey:@"name"];
+        if ([paramObject isKindOfClass:[NSString class]]) {
+            self.name = paramObject;
+        }
+        
+        paramObject = [dict objectForKey:@"id"];
+        if ([paramObject isKindOfClass:[NSString class]]) {
+            self.openSnowID = [NSNumber numberWithInt:[paramObject integerValue]];
+        }
+        
+        paramObject = [dict objectForKey:@"snowid"];
+        if ([paramObject isKindOfClass:[NSString class]]) {
+            self.snoCountryID = [NSNumber numberWithInt:[paramObject integerValue]];
+        }
     }
     return self;
 }

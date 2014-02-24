@@ -87,8 +87,8 @@ static NSString *const FavoriteResortsUserDefaultsKey = @"favoriteResorts";
 - (void)loadResorts
 {
     [[OpenSnowClient instance] getLocationIdsWithState:@"CA"
-                                               success:^(NSURLSessionDataTask *task, id responseObject) {
-                                                   self.favoriteResorts = [Resort resortsWithArray:[responseObject valueForKey:@"location"]];
+                                               success:^(NSURLSessionDataTask *task, NSArray *resorts) {
+                                                   self.favoriteResorts = [resorts mutableCopy];
                                                    [self.tableView reloadData];
                                                } failure:^(NSURLSessionDataTask *task, NSError *error) {
                                                    NSLog(@"error: %@", error);

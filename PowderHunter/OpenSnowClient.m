@@ -8,6 +8,7 @@
 
 #import "OpenSnowClient.h"
 #import <AFNetworking.h>
+#import "Resort.h"
 
 NSString * const OPENSNOW_BASE_URL = @"http://opensnow.com/api/";
 NSString * const OPENSNOW_API_KEY = @"<apikey>";
@@ -41,7 +42,7 @@ NSString * const OPENSNOW_API_KEY = @"<apikey>";
 }
 
 - (void)getLocationIdsWithState:(NSString *)state
-                        success:(void (^)(NSURLSessionDataTask *task, id responseObject))success
+                        success:(void (^)(NSURLSessionDataTask *task, NSArray *resorts))success
                         failure:(void (^)(NSURLSessionDataTask *task, NSError *error))failure
 {
     if (success == nil) {
@@ -52,7 +53,22 @@ NSString * const OPENSNOW_API_KEY = @"<apikey>";
     NSDictionary *params = @{@"apikey": self.apiKey,
                              @"type": @"json",
                              @"state": state};
-    [self GET:getPath parameters:params success:success failure:failure];
+    
+    [self GET:getPath parameters:params success:^(NSURLSessionDataTask *task, id responseObject) {
+        NSArray *resortsArray = nil;
+        
+        // The OpenSnow API is kind of broken. If you request locations for a state that
+        // only has one location, the "location" key contains a dictionary. If there are
+        // multiple locations, then it contains an array.
+        id innerResponseObject = [responseObject objectForKey:@"location"];
+        if ([innerResponseObject isKindOfClass:[NSArray class]]) {
+            resortsArray = [Resort resortsWithArray:innerResponseObject];
+        } else if ([innerResponseObject isKindOfClass:[NSDictionary class]]) {
+            resortsArray = [Resort resortsWithArray:@[innerResponseObject]];
+        }
+        
+        success(task, resortsArray);
+    } failure:failure];
 }
 
 - (void)getLocationDataWithIds:(NSArray *)locationIds

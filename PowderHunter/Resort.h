@@ -22,7 +22,7 @@
 @property (strong, nonatomic, readonly) NSNumber *baseDepth;
 @property (strong, nonatomic, readonly) NSString *currentSnow;
 
-+ (NSMutableArray *)resortsWithArray:(NSArray *)array;
++ (NSArray *)resortsWithArray:(NSArray *)array;
 
 - (id)initWithDictionary:(NSDictionary *)dict;
 

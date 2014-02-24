@@ -33,7 +33,7 @@ static NSString *const NameCoderKey = @"name";
 
 @implementation Resort
 
-+ (NSMutableArray *)resortsWithArray:(NSArray *)array
++ (NSArray *)resortsWithArray:(NSArray *)array
 {
     NSMutableArray *resorts = [[NSMutableArray alloc] initWithCapacity:array.count];
     for (NSDictionary *params in array) {

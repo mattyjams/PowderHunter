@@ -14,7 +14,7 @@
 + (OpenSnowClient *)instance;
 
 - (void)getLocationIdsWithState:(NSString *)state
-                        success:(void (^)(NSURLSessionDataTask *task, id responseObject))success
+                        success:(void (^)(NSURLSessionDataTask *task, NSArray *resorts))success
                         failure:(void (^)(NSURLSessionDataTask *task, NSError *error))failure;
 
 - (void)getLocationDataWithIds:(NSArray *)locationIds

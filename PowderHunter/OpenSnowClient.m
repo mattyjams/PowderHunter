@@ -44,6 +44,10 @@ NSString * const OPENSNOW_API_KEY = @"<apikey>";
                         success:(void (^)(NSURLSessionDataTask *task, id responseObject))success
                         failure:(void (^)(NSURLSessionDataTask *task, NSError *error))failure
 {
+    if (success == nil) {
+        return;
+    }
+
     NSString *getPath = @"getLocationIds.php";
     NSDictionary *params = @{@"apikey": self.apiKey,
                              @"type": @"json",
@@ -55,6 +59,10 @@ NSString * const OPENSNOW_API_KEY = @"<apikey>";
                        success:(void (^)(NSURLSessionDataTask *task, id responseObject))success
                        failure:(void (^)(NSURLSessionDataTask *task, NSError *error))failure
 {
+    if (success == nil) {
+        return;
+    }
+
     NSString *getPath = @"getLocationData.php";
     NSDictionary *params = @{@"apikey": self.apiKey,
                              @"type": @"json",

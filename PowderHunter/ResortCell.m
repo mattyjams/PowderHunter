@@ -16,18 +16,33 @@
 
 @implementation ResortCell
 
-- (id)initWithStyle:(UITableViewCellStyle)style reuseIdentifier:(NSString *)reuseIdentifier
+- (id)initWithCoder:(NSCoder *)aDecoder
 {
-    self = [super initWithStyle:style reuseIdentifier:reuseIdentifier];
+    self = [super initWithCoder:aDecoder];
     if (self) {
-        // Initialization code
+        [self setup];
     }
     return self;
 }
 
+- (id)initWithStyle:(UITableViewCellStyle)style reuseIdentifier:(NSString *)reuseIdentifier
+{
+    self = [super initWithStyle:style reuseIdentifier:reuseIdentifier];
+    if (self) {
+        [self setup];
+    }
+    return self;
+}
+
+- (void)setup
+{
+    self.resortNameLabel.text = self.resort.name;
+}
+
 - (void)setResort:(Resort *)resort
 {
-    self.resortNameLabel.text = resort.name;
+    _resort = resort;
+    [self setup];
 }
 
 @end

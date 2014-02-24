@@ -17,6 +17,10 @@
 		8670270818B146BF002C9D96 /* ResortDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 8670270618B146BF002C9D96 /* ResortDetailViewController.m */; };
 		8670270918B146BF002C9D96 /* ResortDetailViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8670270718B146BF002C9D96 /* ResortDetailViewController.xib */; };
 		86934AA118B3374C00A4BA25 /* Temperature.m in Sources */ = {isa = PBXBuildFile; fileRef = 86934AA018B3374C00A4BA25 /* Temperature.m */; };
+		8693AA2C18BB133200D2F3BF /* EditResortCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 8693AA2B18BB133200D2F3BF /* EditResortCell.m */; };
+		8693AA2E18BB134C00D2F3BF /* EditResortCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8693AA2D18BB134C00D2F3BF /* EditResortCell.xib */; };
+		8693AA3218BB197500D2F3BF /* AddResortsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 8693AA3018BB197500D2F3BF /* AddResortsViewController.m */; };
+		8693AA3318BB197500D2F3BF /* AddResortsViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8693AA3118BB197500D2F3BF /* AddResortsViewController.xib */; };
 		86FFF3D7189D85B800BF1185 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 86FFF3D6189D85B800BF1185 /* Foundation.framework */; };
 		86FFF3D9189D85B800BF1185 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 86FFF3D8189D85B800BF1185 /* CoreGraphics.framework */; };
 		86FFF3DB189D85B800BF1185 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 86FFF3DA189D85B800BF1185 /* UIKit.framework */; };
@@ -61,6 +65,12 @@
 		8670270718B146BF002C9D96 /* ResortDetailViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ResortDetailViewController.xib; sourceTree = "<group>"; };
 		86934A9F18B3374C00A4BA25 /* Temperature.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Temperature.h; sourceTree = "<group>"; };
 		86934AA018B3374C00A4BA25 /* Temperature.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Temperature.m; sourceTree = "<group>"; };
+		8693AA2A18BB133200D2F3BF /* EditResortCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EditResortCell.h; sourceTree = "<group>"; };
+		8693AA2B18BB133200D2F3BF /* EditResortCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EditResortCell.m; sourceTree = "<group>"; };
+		8693AA2D18BB134C00D2F3BF /* EditResortCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = EditResortCell.xib; sourceTree = "<group>"; };
+		8693AA2F18BB197500D2F3BF /* AddResortsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AddResortsViewController.h; sourceTree = "<group>"; };
+		8693AA3018BB197500D2F3BF /* AddResortsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; lineEnding = 0; path = AddResortsViewController.m; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.objc; };
+		8693AA3118BB197500D2F3BF /* AddResortsViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = AddResortsViewController.xib; sourceTree = "<group>"; };
 		86FFF3D3189D85B800BF1185 /* PowderHunter.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = PowderHunter.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		86FFF3D6189D85B800BF1185 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		86FFF3D8189D85B800BF1185 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
@@ -129,6 +139,9 @@
 				867026EE18B13959002C9D96 /* ResortsViewController.h */,
 				867026EF18B13959002C9D96 /* ResortsViewController.m */,
 				867026F018B13959002C9D96 /* ResortsViewController.xib */,
+				8693AA2F18BB197500D2F3BF /* AddResortsViewController.h */,
+				8693AA3018BB197500D2F3BF /* AddResortsViewController.m */,
+				8693AA3118BB197500D2F3BF /* AddResortsViewController.xib */,
 				8670270518B146BF002C9D96 /* ResortDetailViewController.h */,
 				8670270618B146BF002C9D96 /* ResortDetailViewController.m */,
 				8670270718B146BF002C9D96 /* ResortDetailViewController.xib */,
@@ -153,6 +166,9 @@
 				8670270218B1445A002C9D96 /* ResortCell.h */,
 				8670270318B1445A002C9D96 /* ResortCell.m */,
 				8670270018B1444C002C9D96 /* ResortCell.xib */,
+				8693AA2A18BB133200D2F3BF /* EditResortCell.h */,
+				8693AA2B18BB133200D2F3BF /* EditResortCell.m */,
+				8693AA2D18BB134C00D2F3BF /* EditResortCell.xib */,
 			);
 			name = Views;
 			sourceTree = "<group>";
@@ -311,11 +327,13 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				8693AA2E18BB134C00D2F3BF /* EditResortCell.xib in Resources */,
 				867026F218B13959002C9D96 /* ResortsViewController.xib in Resources */,
 				86FFF3E1189D85B800BF1185 /* InfoPlist.strings in Resources */,
 				8670270918B146BF002C9D96 /* ResortDetailViewController.xib in Resources */,
 				8670270118B1444C002C9D96 /* ResortCell.xib in Resources */,
 				86FFF3E9189D85B800BF1185 /* Images.xcassets in Resources */,
+				8693AA3318BB197500D2F3BF /* AddResortsViewController.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -367,6 +385,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				8693AA2C18BB133200D2F3BF /* EditResortCell.m in Sources */,
 				8670270818B146BF002C9D96 /* ResortDetailViewController.m in Sources */,
 				867026F618B139EC002C9D96 /* Resort.m in Sources */,
 				8668A30B18ADF1B900211EAC /* SnoCountryClient.m in Sources */,
@@ -376,6 +395,7 @@
 				86934AA118B3374C00A4BA25 /* Temperature.m in Sources */,
 				86FFF3E3189D85B800BF1185 /* main.m in Sources */,
 				8670270418B1445A002C9D96 /* ResortCell.m in Sources */,
+				8693AA3218BB197500D2F3BF /* AddResortsViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

@@ -48,12 +48,7 @@ static NSString *EditResortCellIdentifier = @"EditResortCell";
 
 - (void)pickerView:(UIPickerView *)pickerView didSelectRow:(NSInteger)row inComponent:(NSInteger)component
 {
-    if (row <= 0) {
-        return;
-    }
-    
-    NSString *stateCode = [self StateCodes][row];
-    [[OpenSnowClient instance] getLocationIdsWithState:stateCode
+    [[OpenSnowClient instance] getLocationIdsWithState:[self StateCodes][row]
                                                success:^(NSURLSessionDataTask *task, NSArray *resorts) {
                                                    self.resortChoices = [resorts mutableCopy];
                                                    [self.resortTableView reloadData];
@@ -154,7 +149,7 @@ static NSString *EditResortCellIdentifier = @"EditResortCell";
 
 - (NSArray *)StateCodes
 {
-    return @[@"Select a state",
+    return @[@"",
              @"AL",
              @"AK",
              @"AZ",

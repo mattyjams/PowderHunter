@@ -8,7 +8,6 @@
 
 #import "ResortsViewController.h"
 #import "OpenSnowClient.h"
-#import "SnoCountryClient.h"
 #import "Resort.h"
 #import "ResortCell.h"
 #import "ResortDetailViewController.h"

@@ -46,6 +46,14 @@ static NSString *const FavoriteResortsUserDefaultsKey = @"favoriteResorts";
     }
 }
 
+- (void)insertFavoriteResort:(Resort *)resort atIndex:(NSInteger)index
+{
+    if (![self isFavoriteResort:resort]) {
+        [self.favoriteResorts insertObject:resort atIndex:index];
+        [self saveFavoriteResorts];
+    }
+}
+
 - (void)removeFavoriteResort:(Resort *)resort
 {
     for (Resort *favoriteResort in self.favoriteResorts) {

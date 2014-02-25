@@ -16,6 +16,7 @@
 + (FavoriteResortsManager *)instance;
 
 - (void)addFavoriteResort:(Resort *)resort;
+- (void)insertFavoriteResort:(Resort *)resort atIndex:(NSInteger)index;
 - (void)removeFavoriteResort:(Resort *)resort;
 
 - (BOOL)isFavoriteResort:(Resort *)resort;

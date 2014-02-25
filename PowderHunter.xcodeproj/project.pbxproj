@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		86412BE318BC79E800E3CD48 /* FavoriteResortsManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 86412BE218BC79E800E3CD48 /* FavoriteResortsManager.m */; };
 		8668A30718ADF05000211EAC /* OpenSnowClient.m in Sources */ = {isa = PBXBuildFile; fileRef = 8668A30618ADF05000211EAC /* OpenSnowClient.m */; };
 		8668A30B18ADF1B900211EAC /* SnoCountryClient.m in Sources */ = {isa = PBXBuildFile; fileRef = 8668A30A18ADF1B900211EAC /* SnoCountryClient.m */; };
 		867026F118B13959002C9D96 /* ResortsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 867026EF18B13959002C9D96 /* ResortsViewController.m */; };
@@ -48,6 +49,8 @@
 
 /* Begin PBXFileReference section */
 		716E767BAF8F4C6D8F9EDF50 /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
+		86412BE118BC79E800E3CD48 /* FavoriteResortsManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FavoriteResortsManager.h; sourceTree = "<group>"; };
+		86412BE218BC79E800E3CD48 /* FavoriteResortsManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FavoriteResortsManager.m; sourceTree = "<group>"; };
 		8668A30518ADF05000211EAC /* OpenSnowClient.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OpenSnowClient.h; sourceTree = "<group>"; };
 		8668A30618ADF05000211EAC /* OpenSnowClient.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = OpenSnowClient.m; sourceTree = "<group>"; };
 		8668A30918ADF1B900211EAC /* SnoCountryClient.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SnoCountryClient.h; sourceTree = "<group>"; };
@@ -156,6 +159,8 @@
 				867026F518B139EC002C9D96 /* Resort.m */,
 				86934A9F18B3374C00A4BA25 /* Temperature.h */,
 				86934AA018B3374C00A4BA25 /* Temperature.m */,
+				86412BE118BC79E800E3CD48 /* FavoriteResortsManager.h */,
+				86412BE218BC79E800E3CD48 /* FavoriteResortsManager.m */,
 			);
 			name = Model;
 			sourceTree = "<group>";
@@ -389,6 +394,7 @@
 				8670270818B146BF002C9D96 /* ResortDetailViewController.m in Sources */,
 				867026F618B139EC002C9D96 /* Resort.m in Sources */,
 				8668A30B18ADF1B900211EAC /* SnoCountryClient.m in Sources */,
+				86412BE318BC79E800E3CD48 /* FavoriteResortsManager.m in Sources */,
 				867026F118B13959002C9D96 /* ResortsViewController.m in Sources */,
 				86FFF3E7189D85B800BF1185 /* AppDelegate.m in Sources */,
 				8668A30718ADF05000211EAC /* OpenSnowClient.m in Sources */,

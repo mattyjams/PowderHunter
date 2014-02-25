@@ -19,15 +19,37 @@
                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                         <nil key="highlightedColor"/>
                     </label>
+                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="QnX-qE-vi2">
+                        <rect key="frame" x="279" y="20" width="21" height="21"/>
+                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                        <constraints>
+                            <constraint firstAttribute="height" constant="21" id="7JH-c0-Umy"/>
+                            <constraint firstAttribute="width" constant="21" id="kRa-Ea-b5g"/>
+                        </constraints>
+                        <state key="normal" image="black_star">
+                            <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                        </state>
+                        <state key="selected" image="gold_star"/>
+                        <connections>
+                            <action selector="onFavoriteButtonTapped:" destination="z7N-6b-3ul" eventType="touchUpInside" id="d9M-TR-zqP"/>
+                        </connections>
+                    </button>
                 </subviews>
                 <constraints>
+                    <constraint firstAttribute="trailing" secondItem="QnX-qE-vi2" secondAttribute="trailing" constant="20" symbolic="YES" id="54h-pZ-hvb" userLabel="Horizontal Space - Content View - Buttoned"/>
                     <constraint firstItem="PEB-gJ-bcC" firstAttribute="top" secondItem="DkK-1E-kJR" secondAttribute="top" constant="20" id="6Su-92-7ak"/>
                     <constraint firstItem="PEB-gJ-bcC" firstAttribute="leading" secondItem="DkK-1E-kJR" secondAttribute="leading" constant="20" id="N0t-9i-JmB"/>
+                    <constraint firstItem="QnX-qE-vi2" firstAttribute="top" secondItem="DkK-1E-kJR" secondAttribute="top" constant="20" symbolic="YES" id="nhG-Wo-Cjc"/>
                 </constraints>
             </tableViewCellContentView>
             <connections>
+                <outlet property="favoriteButton" destination="QnX-qE-vi2" id="3eF-Yc-pn8"/>
                 <outlet property="resortNameLabel" destination="PEB-gJ-bcC" id="Joe-cx-jZg"/>
             </connections>
         </tableViewCell>
     </objects>
+    <resources>
+        <image name="black_star" width="128" height="128"/>
+        <image name="gold_star" width="128" height="128"/>
+    </resources>
 </document>

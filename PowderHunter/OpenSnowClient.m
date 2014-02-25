@@ -45,7 +45,7 @@ NSString * const OPENSNOW_API_KEY = @"<apikey>";
                         success:(void (^)(NSURLSessionDataTask *task, NSArray *resorts))success
                         failure:(void (^)(NSURLSessionDataTask *task, NSError *error))failure
 {
-    if (success == nil) {
+    if (state == nil || [state length] == 0 || success == nil) {
         return;
     }
 
@@ -75,7 +75,7 @@ NSString * const OPENSNOW_API_KEY = @"<apikey>";
                        success:(void (^)(NSURLSessionDataTask *task, id responseObject))success
                        failure:(void (^)(NSURLSessionDataTask *task, NSError *error))failure
 {
-    if (success == nil) {
+    if (locationIds == nil || [locationIds count] == 0 || success == nil) {
         return;
     }
 

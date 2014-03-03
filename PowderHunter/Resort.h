@@ -16,6 +16,10 @@
 
 @property (strong, nonatomic, readonly) NSString *name;
 
+@property (strong, nonatomic, readonly) NSArray *forecasts; // of Forecast
+
+@property (nonatomic, readonly) NSString *currentWeatherIcon;
+
 @property (strong, nonatomic, readonly) NSString *currentConditions;
 @property (strong, nonatomic, readonly) NSNumber *currentLow;
 @property (strong, nonatomic, readonly) NSNumber *currentHigh;
@@ -29,6 +33,7 @@
 
 - (id)initWithDictionary:(NSDictionary *)dict;
 
+- (void)loadForecastDataWithCallback:(void (^)(BOOL success))callback;
 - (void) loadDetailsWithCallback:(void(^)(bool success)) callback;
 
 @end

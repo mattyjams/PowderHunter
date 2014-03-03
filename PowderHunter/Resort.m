@@ -7,6 +7,8 @@
 //
 
 #import "Resort.h"
+#import "Forecast.h"
+#import "OpenSnowClient.h"
 #import "SnoCountryClient.h"
 
 static NSString *const OpenSnowIDCoderKey = @"openSnowID";
@@ -20,6 +22,9 @@ static NSString *const NameCoderKey = @"name";
 
 @property (strong, nonatomic, readwrite) NSString *name;
 
+@property (strong, nonatomic, readwrite) NSArray *forecasts; // of Forecast
+
+@property (assign, nonatomic) BOOL loadedForecastData;
 @property (nonatomic, readwrite) BOOL loadedDetail;
 
 @property (strong, nonatomic, readwrite) NSString *currentConditions;
@@ -30,6 +35,8 @@ static NSString *const NameCoderKey = @"name";
 @property (strong, nonatomic, readwrite) NSString *currentSnow;
 
 @property (assign, nonatomic, readwrite) CLLocationCoordinate2D coordinates;
+
+@property (strong, nonatomic) NSString *iconBaseURL;
 
 @end
 
@@ -48,6 +55,7 @@ static NSString *const NameCoderKey = @"name";
 {
     self = [super init];
     if (self) {
+        self.loadedForecastData = NO;
         self.loadedDetail = NO;
 
         id paramObject = [dict objectForKey:@"name"];
@@ -86,10 +94,49 @@ static NSString *const NameCoderKey = @"name";
     [aCoder encodeObject:self.name forKey:NameCoderKey];
 }
 
+- (NSString *)currentWeatherIcon
+{
+    if (self.forecasts.count > 0) {
+        Forecast *forecast = self.forecasts.firstObject;
+        return [self.iconBaseURL stringByAppendingFormat:@"/%@", forecast.dayIcon];
+    }
+    
+    return nil;
+}
+
 - (NSString *)description
 {
     return [NSString stringWithFormat:@"Resort Name: %@ (OpenSnowID: %@, SnoCountryID: %@)",
             self.name, self.openSnowID, self.snoCountryID];
+}
+
+- (void)loadForecastDataWithCallback:(void (^)(BOOL success))callback
+{
+    [[OpenSnowClient instance] getLocationDataWithIds:@[self.openSnowID]
+                                              success:^(NSURLSessionDataTask *task, id responseObject) {
+                                                  NSMutableArray *resortForecasts = [[NSMutableArray alloc] init];
+                                                  NSArray *forecastDicts = [responseObject valueForKeyPath:@"location.forecast.period"];
+                                                  for (NSDictionary *dict in forecastDicts) {
+                                                      Forecast *forecast = [[Forecast alloc] initWithDictionary:dict];
+                                                      [resortForecasts addObject:forecast];
+                                                  }
+                                                  
+                                                  self.forecasts = resortForecasts;
+                                                  
+                                                  self.iconBaseURL = [responseObject valueForKeyPath:@"location.meta.icon_url"];
+                                                  
+                                                  self.loadedForecastData = YES;
+                                                  if(callback) {
+                                                      callback(YES);
+                                                  }
+                                              } failure:^(NSURLSessionDataTask *task, NSError *error) {
+                                                  NSLog(@"error: %@", error);
+                                                  
+                                                  self.loadedForecastData = NO;
+                                                  if(callback) {
+                                                      callback(NO);
+                                                  }
+                                              }];
 }
 
 - (void) loadDetailsWithCallback:(void(^)(bool success)) callback

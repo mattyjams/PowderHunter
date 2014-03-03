@@ -9,6 +9,7 @@
 #import "ResortDetailViewController.h"
 #import "RTSpinKitView.h"
 #import "MBProgressHUD.h"
+#import <MapKit/MapKit.h>
 
 @interface ResortDetailViewController ()
 
@@ -21,6 +22,7 @@
 @property (weak, nonatomic) IBOutlet UILabel *baseDepthLabel;
 @property (weak, nonatomic) IBOutlet UILabel *snowConditionsLabel;
 
+- (IBAction)onViewLocationOnMapButton:(UIButton *)sender;
 @end
 
 @implementation ResortDetailViewController
@@ -66,6 +68,21 @@
     self.twoDayTotalLabel.text = [NSString stringWithFormat:@"%@\"", self.resort.twoDayTotal];
     self.baseDepthLabel.text = [NSString stringWithFormat:@"%@\"", self.resort.baseDepth];
     self.snowConditionsLabel.text = self.resort.currentSnow;
+}
+
+- (IBAction)onViewLocationOnMapButton:(UIButton *)sender
+{
+    MKMapView *mapView = [[MKMapView alloc] init];
+    MKCoordinateRegion viewRegion = MKCoordinateRegionMakeWithDistance(self.resort.coordinates, 50000, 50000);
+    [mapView setRegion:viewRegion animated:YES];
+    
+    MKPointAnnotation *annotation = [[MKPointAnnotation alloc] init];
+    annotation.coordinate = self.resort.coordinates;
+    [mapView addAnnotation:annotation];
+
+    UIViewController *vc = [[UIViewController alloc] init];
+    vc.view = mapView;
+    [self.navigationController pushViewController:vc animated:YES];
 }
 
 @end

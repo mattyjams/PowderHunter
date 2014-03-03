@@ -22,6 +22,7 @@
 		8693AA3218BB197500D2F3BF /* AddResortsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 8693AA3018BB197500D2F3BF /* AddResortsViewController.m */; };
 		8693AA3318BB197500D2F3BF /* AddResortsViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8693AA3118BB197500D2F3BF /* AddResortsViewController.xib */; };
 		86E14A9818C44ACC0070B6CB /* ResortsViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 86E14A9718C44ACC0070B6CB /* ResortsViewController.xib */; };
+		86E14A9B18C466EB0070B6CB /* Forecast.m in Sources */ = {isa = PBXBuildFile; fileRef = 86E14A9A18C466EB0070B6CB /* Forecast.m */; };
 		86FFF3D7189D85B800BF1185 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 86FFF3D6189D85B800BF1185 /* Foundation.framework */; };
 		86FFF3D9189D85B800BF1185 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 86FFF3D8189D85B800BF1185 /* CoreGraphics.framework */; };
 		86FFF3DB189D85B800BF1185 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 86FFF3DA189D85B800BF1185 /* UIKit.framework */; };
@@ -74,6 +75,8 @@
 		8693AA3018BB197500D2F3BF /* AddResortsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; lineEnding = 0; path = AddResortsViewController.m; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.objc; };
 		8693AA3118BB197500D2F3BF /* AddResortsViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = AddResortsViewController.xib; sourceTree = "<group>"; };
 		86E14A9718C44ACC0070B6CB /* ResortsViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ResortsViewController.xib; sourceTree = "<group>"; };
+		86E14A9918C466EB0070B6CB /* Forecast.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Forecast.h; sourceTree = "<group>"; };
+		86E14A9A18C466EB0070B6CB /* Forecast.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Forecast.m; sourceTree = "<group>"; };
 		86FFF3D3189D85B800BF1185 /* PowderHunter.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = PowderHunter.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		86FFF3D6189D85B800BF1185 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		86FFF3D8189D85B800BF1185 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
@@ -161,6 +164,8 @@
 				86934AA018B3374C00A4BA25 /* Temperature.m */,
 				86412BE118BC79E800E3CD48 /* FavoriteResortsManager.h */,
 				86412BE218BC79E800E3CD48 /* FavoriteResortsManager.m */,
+				86E14A9918C466EB0070B6CB /* Forecast.h */,
+				86E14A9A18C466EB0070B6CB /* Forecast.m */,
 			);
 			name = Model;
 			sourceTree = "<group>";
@@ -394,6 +399,7 @@
 				8670270818B146BF002C9D96 /* ResortDetailViewController.m in Sources */,
 				867026F618B139EC002C9D96 /* Resort.m in Sources */,
 				8668A30B18ADF1B900211EAC /* SnoCountryClient.m in Sources */,
+				86E14A9B18C466EB0070B6CB /* Forecast.m in Sources */,
 				86412BE318BC79E800E3CD48 /* FavoriteResortsManager.m in Sources */,
 				867026F118B13959002C9D96 /* ResortsViewController.m in Sources */,
 				86FFF3E7189D85B800BF1185 /* AppDelegate.m in Sources */,

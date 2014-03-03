@@ -7,9 +7,11 @@
 //
 
 #import "ResortCell.h"
+#import <UIImageView+AFNetworking.h>
 
 @interface ResortCell ()
 
+@property (weak, nonatomic) IBOutlet UIImageView *weatherImageView;
 @property (weak, nonatomic) IBOutlet UILabel *resortNameLabel;
 
 @end
@@ -37,6 +39,8 @@
 - (void)setup
 {
     self.resortNameLabel.text = self.resort.name;
+    
+    [self.weatherImageView setImageWithURL:[NSURL URLWithString:self.resort.currentWeatherIcon]];
 }
 
 - (void)setResort:(Resort *)resort

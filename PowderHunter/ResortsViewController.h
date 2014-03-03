@@ -8,6 +8,6 @@
 
 #import <UIKit/UIKit.h>
 
-@interface ResortsViewController : UITableViewController
+@interface ResortsViewController : UIViewController
 
 @end

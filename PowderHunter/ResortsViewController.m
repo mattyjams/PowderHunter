@@ -16,6 +16,13 @@
 
 static NSString *ResortCellIdentifier = @"ResortCell";
 
+@interface ResortsViewController () <UITableViewDataSource, UITableViewDelegate>
+
+@property (strong, nonatomic) IBOutlet UITableView *resortsTableView;
+@property (weak, nonatomic) IBOutlet UIView *welcomeView;
+
+@end
+
 @implementation ResortsViewController
 
 - (void)viewDidLoad
@@ -25,12 +32,10 @@ static NSString *ResortCellIdentifier = @"ResortCell";
     self.title = @"Resorts";
     
     UINib *resortCellNib = [UINib nibWithNibName:ResortCellIdentifier bundle:nil];
-    [self.tableView registerNib:resortCellNib forCellReuseIdentifier:ResortCellIdentifier];
+    [self.resortsTableView registerNib:resortCellNib forCellReuseIdentifier:ResortCellIdentifier];
     
     [self updateDataForResorts:[FavoriteResortsManager instance].favoriteResorts];
     
-    self.navigationItem.leftBarButtonItem = self.editButtonItem;
-
     self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemAdd
                                                                                            target:self
                                                                                            action:@selector(onAddButton)];
@@ -38,7 +43,30 @@ static NSString *ResortCellIdentifier = @"ResortCell";
 
 - (void)viewWillAppear:(BOOL)animated
 {
-    [self.tableView reloadData];
+    [self configureViews];
+    [self.resortsTableView reloadData];
+}
+
+- (void)configureViews
+{
+    if ([[FavoriteResortsManager instance].favoriteResorts count] > 0) {
+        self.welcomeView.hidden = true;
+        self.resortsTableView.hidden = false;
+
+        self.navigationItem.leftBarButtonItem = self.editButtonItem;
+    } else {
+        self.welcomeView.hidden = false;
+        self.resortsTableView.hidden = true;
+
+        self.navigationItem.leftBarButtonItem = nil;
+        [self setEditing:NO animated:YES];
+    }
+}
+
+- (void)setEditing:(BOOL)editing animated:(BOOL)animated
+{
+    [super setEditing:editing animated:animated];
+    [self.resortsTableView setEditing:editing animated:animated];
 }
 
 - (void)updateDataForResorts:(NSArray *)resorts
@@ -79,6 +107,7 @@ static NSString *ResortCellIdentifier = @"ResortCell";
         Resort *resort = [FavoriteResortsManager instance].favoriteResorts[indexPath.row];
         [[FavoriteResortsManager instance] removeFavoriteResort:resort];
         [tableView deleteRowsAtIndexPaths:@[indexPath] withRowAnimation:UITableViewRowAnimationFade];
+        [self configureViews];
     }
 }
 
@@ -88,7 +117,7 @@ static NSString *ResortCellIdentifier = @"ResortCell";
     [[FavoriteResortsManager instance] removeFavoriteResort:resort];
     [[FavoriteResortsManager instance] insertFavoriteResort:resort atIndex:toIndexPath.row];
     
-    [self.tableView reloadData];
+    [self.resortsTableView reloadData];
 }
 
 #pragma mark - Table view delegate

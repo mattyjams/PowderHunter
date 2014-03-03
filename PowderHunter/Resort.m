@@ -96,7 +96,6 @@ static NSString *const NameCoderKey = @"name";
         // would probably be best to batch all these calls ...
         [[SnoCountryClient instance] getConditionsDetailWithResortId:self.snoCountryID
                                     success: ^(NSURLSessionDataTask *task, id responseObject) {
-                                        sleep(2);
                                         NSArray* arr = [responseObject objectForKey:@"items"];
                                         // only wanted 1 resort, so current resort is in slot 0
                                         NSDictionary *resortDetail = arr[0];

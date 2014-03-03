@@ -34,8 +34,6 @@ static NSString *ResortCellIdentifier = @"ResortCell";
     UINib *resortCellNib = [UINib nibWithNibName:ResortCellIdentifier bundle:nil];
     [self.resortsTableView registerNib:resortCellNib forCellReuseIdentifier:ResortCellIdentifier];
     
-    [self updateDataForResorts:[FavoriteResortsManager instance].favoriteResorts];
-    
     self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemAdd
                                                                                            target:self
                                                                                            action:@selector(onAddButton)];
@@ -45,6 +43,8 @@ static NSString *ResortCellIdentifier = @"ResortCell";
 {
     [self configureViews];
     [self.resortsTableView reloadData];
+    
+    [self updateDataForResorts];
 }
 
 - (void)configureViews
@@ -69,19 +69,14 @@ static NSString *ResortCellIdentifier = @"ResortCell";
     [self.resortsTableView setEditing:editing animated:animated];
 }
 
-- (void)updateDataForResorts:(NSArray *)resorts
+- (void)updateDataForResorts
 {
-    NSMutableArray *resortIds = [NSMutableArray arrayWithCapacity:[resorts count]];
+    NSArray *resorts = [FavoriteResortsManager instance].favoriteResorts;
     for (Resort *resort in resorts) {
-        [resortIds addObject:resort.openSnowID];
+        [resort loadForecastDataWithCallback:^(BOOL success) {
+            [self.resortsTableView reloadData];
+        }];
     }
-    
-    [[OpenSnowClient instance] getLocationDataWithIds:resortIds
-                                              success:^(NSURLSessionDataTask *task, id responseObject) {
-                                                  NSLog(@"responseObject: %@", responseObject);
-                                              } failure:^(NSURLSessionDataTask *task, NSError *error) {
-                                                  NSLog(@"error: %@", error);
-                                              }];
 }
 
 #pragma mark - Table view data source
@@ -98,6 +93,11 @@ static NSString *ResortCellIdentifier = @"ResortCell";
     cell.resort = [FavoriteResortsManager instance].favoriteResorts[indexPath.row];
 
     return cell;
+}
+
+- (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    return 85;
 }
 
 - (void)tableView:(UITableView *)tableView commitEditingStyle:(UITableViewCellEditingStyle)editingStyle forRowAtIndexPath:(NSIndexPath *)indexPath

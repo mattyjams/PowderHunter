@@ -29,6 +29,8 @@ static NSString *const NameCoderKey = @"name";
 @property (strong, nonatomic, readwrite) NSNumber *baseDepth;
 @property (strong, nonatomic, readwrite) NSString *currentSnow;
 
+@property (assign, nonatomic, readwrite) CLLocationCoordinate2D coordinates;
+
 @end
 
 @implementation Resort
@@ -105,8 +107,9 @@ static NSString *const NameCoderKey = @"name";
                                         self.currentSnow = [resortDetail objectForKey:@"primarySurfaceCondition"];
                                         self.twoDayTotal = [NSNumber numberWithInt:[[resortDetail objectForKey:@"snowLast48Hours"] integerValue]];
                                         self.baseDepth = [NSNumber numberWithInt:[[resortDetail objectForKey:@"avgBaseDepthMax"] integerValue]];
-                                        
-                                        
+
+                                        self.coordinates = CLLocationCoordinate2DMake([[resortDetail objectForKey:@"latitude"] doubleValue],
+                                                                                      [[resortDetail objectForKey:@"longitude"] doubleValue]);
                                         self.loadedDetail = true;
                                         if(callback) {
                                             callback(true);

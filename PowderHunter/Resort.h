@@ -7,6 +7,7 @@
 //
 
 #import <Foundation/Foundation.h>
+#import <MapKit/MapKit.h>
 
 @interface Resort : NSObject <NSCoding>
 
@@ -21,6 +22,8 @@
 @property (strong, nonatomic, readonly) NSNumber *twoDayTotal;
 @property (strong, nonatomic, readonly) NSNumber *baseDepth;
 @property (strong, nonatomic, readonly) NSString *currentSnow;
+
+@property (assign, nonatomic, readonly) CLLocationCoordinate2D coordinates;
 
 + (NSArray *)resortsWithArray:(NSArray *)array;
 

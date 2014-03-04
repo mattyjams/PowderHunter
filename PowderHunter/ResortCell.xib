@@ -37,7 +37,7 @@
                     <constraint firstItem="5AR-jV-y8r" firstAttribute="top" secondItem="sl9-L5-Cq5" secondAttribute="top" constant="10" id="fR0-tm-I9q"/>
                 </constraints>
             </tableViewCellContentView>
-            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+            <color key="backgroundColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
             <connections>
                 <outlet property="resortNameLabel" destination="PoY-lC-zi1" id="MtC-e4-z1b"/>
                 <outlet property="weatherImageView" destination="5AR-jV-y8r" id="Wy9-nU-M34"/>

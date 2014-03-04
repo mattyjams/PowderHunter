@@ -16,7 +16,13 @@
     self.window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
 
     ResortsViewController *resortsVC = [[ResortsViewController alloc] init];
-    UINavigationController *nvc = [[UINavigationController alloc] initWithRootViewController:resortsVC];    
+    UINavigationController *nvc = [[UINavigationController alloc] initWithRootViewController:resortsVC];
+
+    NSDictionary *attrs = @{NSForegroundColorAttributeName: [UIColor whiteColor]};
+    nvc.navigationBar.titleTextAttributes = attrs;
+    
+    nvc.navigationBar.barTintColor = [UIColor brownColor];
+    
     self.window.rootViewController = nvc;
 
     self.window.backgroundColor = [UIColor whiteColor];

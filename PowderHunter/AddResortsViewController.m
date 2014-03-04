@@ -41,9 +41,12 @@ static NSString *EditResortCellIdentifier = @"EditResortCell";
 }
 
 #pragma Mark - Picker view delegate
-- (NSString *)pickerView:(UIPickerView *)pickerView titleForRow:(NSInteger)row forComponent:(NSInteger)component
+
+- (NSAttributedString *)pickerView:(UIPickerView *)pickerView attributedTitleForRow:(NSInteger)row forComponent:(NSInteger)component
 {
-    return [self StateNames][row];
+    NSDictionary *attrs = @{NSForegroundColorAttributeName:[UIColor whiteColor]};
+    return [[NSAttributedString alloc] initWithString:[self StateNames][row]
+                                           attributes:attrs];
 }
 
 - (void)pickerView:(UIPickerView *)pickerView didSelectRow:(NSInteger)row inComponent:(NSInteger)component
@@ -78,11 +81,6 @@ static NSString *EditResortCellIdentifier = @"EditResortCell";
     cell.resort = self.resortChoices[indexPath.row];
     
     return cell;
-}
-
-- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
-{
-    NSLog(@"selected resort: %@", self.resortChoices[indexPath.row]);
 }
 
 #pragma Mark - Table view data source

@@ -16,7 +16,7 @@
             <rect key="frame" x="0.0" y="0.0" width="320" height="504"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
-                <tableView clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" alwaysBounceVertical="YES" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" translatesAutoresizingMaskIntoConstraints="NO" id="ZnO-cq-txZ">
+                <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" translatesAutoresizingMaskIntoConstraints="NO" id="ZnO-cq-txZ">
                     <rect key="frame" x="0.0" y="0.0" width="320" height="504"/>
                     <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                     <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -25,7 +25,7 @@
                         <outlet property="delegate" destination="-1" id="YPG-Na-vJl"/>
                     </connections>
                 </tableView>
-                <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="pO2-ew-wm6" userLabel="WelcomeView">
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="pO2-ew-wm6" userLabel="WelcomeView">
                     <rect key="frame" x="0.0" y="0.0" width="320" height="504"/>
                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                     <subviews>
@@ -46,6 +46,16 @@
                 </view>
             </subviews>
             <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+            <constraints>
+                <constraint firstAttribute="trailing" secondItem="ZnO-cq-txZ" secondAttribute="trailing" id="4NQ-Gb-XG0"/>
+                <constraint firstItem="ZnO-cq-txZ" firstAttribute="leading" secondItem="lFn-hN-dEC" secondAttribute="leading" id="8tx-Iu-wMc"/>
+                <constraint firstAttribute="bottom" secondItem="pO2-ew-wm6" secondAttribute="bottom" id="F0A-dA-5H1"/>
+                <constraint firstItem="pO2-ew-wm6" firstAttribute="leading" secondItem="lFn-hN-dEC" secondAttribute="leading" id="N7A-Kn-Z2E"/>
+                <constraint firstAttribute="trailing" secondItem="pO2-ew-wm6" secondAttribute="trailing" id="NWt-7U-eYa"/>
+                <constraint firstItem="pO2-ew-wm6" firstAttribute="top" secondItem="lFn-hN-dEC" secondAttribute="top" id="Pbw-cb-e3b"/>
+                <constraint firstItem="ZnO-cq-txZ" firstAttribute="top" secondItem="lFn-hN-dEC" secondAttribute="top" id="Wdu-03-Vlr"/>
+                <constraint firstAttribute="bottom" secondItem="ZnO-cq-txZ" secondAttribute="bottom" id="vSC-uH-qtS"/>
+            </constraints>
         </view>
     </objects>
 </document>

@@ -14,9 +14,10 @@
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
                     <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Resort Name" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="PoY-lC-zi1" userLabel="ResortNameLabel - Resort Name">
-                        <rect key="frame" x="82" y="31" width="101" height="21"/>
+                        <rect key="frame" x="82" y="33" width="92" height="18"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                        <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
+                        <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <nil key="highlightedColor"/>
                     </label>
                     <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="5AR-jV-y8r">
@@ -28,13 +29,15 @@
                         </constraints>
                     </imageView>
                 </subviews>
+                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                 <constraints>
                     <constraint firstItem="5AR-jV-y8r" firstAttribute="leading" secondItem="sl9-L5-Cq5" secondAttribute="leading" constant="10" id="DUz-ub-6a4"/>
-                    <constraint firstItem="PoY-lC-zi1" firstAttribute="top" secondItem="sl9-L5-Cq5" secondAttribute="top" constant="31" id="NKd-XB-rkm"/>
+                    <constraint firstItem="PoY-lC-zi1" firstAttribute="top" secondItem="sl9-L5-Cq5" secondAttribute="top" constant="33" id="NKd-XB-rkm"/>
                     <constraint firstItem="PoY-lC-zi1" firstAttribute="leading" secondItem="5AR-jV-y8r" secondAttribute="trailing" constant="8" id="PRx-IS-xgj"/>
                     <constraint firstItem="5AR-jV-y8r" firstAttribute="top" secondItem="sl9-L5-Cq5" secondAttribute="top" constant="10" id="fR0-tm-I9q"/>
                 </constraints>
             </tableViewCellContentView>
+            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
             <connections>
                 <outlet property="resortNameLabel" destination="PoY-lC-zi1" id="MtC-e4-z1b"/>
                 <outlet property="weatherImageView" destination="5AR-jV-y8r" id="Wy9-nU-M34"/>

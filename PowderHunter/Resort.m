@@ -97,8 +97,8 @@ static NSString *const NameCoderKey = @"name";
 - (NSString *)currentWeatherIcon
 {
     if (self.forecasts.count > 0) {
-        Forecast *forecast = self.forecasts.firstObject;
-        return [self.iconBaseURL stringByAppendingFormat:@"/%@", forecast.dayIcon];
+        Forecast *forecast = [self.forecasts firstObject];
+        return forecast.dayIcon;
     }
     
     return nil;
@@ -114,16 +114,17 @@ static NSString *const NameCoderKey = @"name";
 {
     [[OpenSnowClient instance] getLocationDataWithIds:@[self.openSnowID]
                                               success:^(NSURLSessionDataTask *task, id responseObject) {
+                                                  self.iconBaseURL = [responseObject valueForKeyPath:@"location.meta.icon_url"];
+                                                  
                                                   NSMutableArray *resortForecasts = [[NSMutableArray alloc] init];
                                                   NSArray *forecastDicts = [responseObject valueForKeyPath:@"location.forecast.period"];
                                                   for (NSDictionary *dict in forecastDicts) {
                                                       Forecast *forecast = [[Forecast alloc] initWithDictionary:dict];
+                                                      forecast.iconBaseURL = self.iconBaseURL;
                                                       [resortForecasts addObject:forecast];
                                                   }
                                                   
                                                   self.forecasts = resortForecasts;
-                                                  
-                                                  self.iconBaseURL = [responseObject valueForKeyPath:@"location.meta.icon_url"];
                                                   
                                                   self.loadedForecastData = YES;
                                                   if(callback) {

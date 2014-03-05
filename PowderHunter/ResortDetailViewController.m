@@ -63,8 +63,8 @@
 {
     self.hiderBox.hidden = true;
     self.currentWeatherLabel.text = self.resort.currentConditions;
-    self.currentLowLabel.text = [self.resort.currentLow stringValue];
-    self.currentHighLabel.text = [self.resort.currentHigh stringValue];
+    self.currentLowLabel.text = [NSString stringWithFormat:@"%@º", [self.resort.currentLow stringValue]];
+    self.currentHighLabel.text = [NSString stringWithFormat:@"%@º", [self.resort.currentHigh stringValue]];
     self.twoDayTotalLabel.text = [NSString stringWithFormat:@"%@\"", self.resort.twoDayTotal];
     self.baseDepthLabel.text = [NSString stringWithFormat:@"%@\"", self.resort.baseDepth];
     self.snowConditionsLabel.text = self.resort.currentSnow;

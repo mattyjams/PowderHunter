@@ -8,6 +8,8 @@
 
 /* Begin PBXBuildFile section */
 		86412BE318BC79E800E3CD48 /* FavoriteResortsManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 86412BE218BC79E800E3CD48 /* FavoriteResortsManager.m */; };
+		864B824418C702FC006959C8 /* ForecastCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 864B824318C702FC006959C8 /* ForecastCell.m */; };
+		864B824618C70365006959C8 /* ForecastCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 864B824518C70365006959C8 /* ForecastCell.xib */; };
 		8668A30718ADF05000211EAC /* OpenSnowClient.m in Sources */ = {isa = PBXBuildFile; fileRef = 8668A30618ADF05000211EAC /* OpenSnowClient.m */; };
 		8668A30B18ADF1B900211EAC /* SnoCountryClient.m in Sources */ = {isa = PBXBuildFile; fileRef = 8668A30A18ADF1B900211EAC /* SnoCountryClient.m */; };
 		867026F118B13959002C9D96 /* ResortsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 867026EF18B13959002C9D96 /* ResortsViewController.m */; };
@@ -52,6 +54,9 @@
 		716E767BAF8F4C6D8F9EDF50 /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
 		86412BE118BC79E800E3CD48 /* FavoriteResortsManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FavoriteResortsManager.h; sourceTree = "<group>"; };
 		86412BE218BC79E800E3CD48 /* FavoriteResortsManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FavoriteResortsManager.m; sourceTree = "<group>"; };
+		864B824218C702FC006959C8 /* ForecastCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ForecastCell.h; sourceTree = "<group>"; };
+		864B824318C702FC006959C8 /* ForecastCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ForecastCell.m; sourceTree = "<group>"; };
+		864B824518C70365006959C8 /* ForecastCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ForecastCell.xib; sourceTree = "<group>"; };
 		8668A30518ADF05000211EAC /* OpenSnowClient.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OpenSnowClient.h; sourceTree = "<group>"; };
 		8668A30618ADF05000211EAC /* OpenSnowClient.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = OpenSnowClient.m; sourceTree = "<group>"; };
 		8668A30918ADF1B900211EAC /* SnoCountryClient.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SnoCountryClient.h; sourceTree = "<group>"; };
@@ -179,6 +184,9 @@
 				8693AA2A18BB133200D2F3BF /* EditResortCell.h */,
 				8693AA2B18BB133200D2F3BF /* EditResortCell.m */,
 				8693AA2D18BB134C00D2F3BF /* EditResortCell.xib */,
+				864B824218C702FC006959C8 /* ForecastCell.h */,
+				864B824318C702FC006959C8 /* ForecastCell.m */,
+				864B824518C70365006959C8 /* ForecastCell.xib */,
 			);
 			name = Views;
 			sourceTree = "<group>";
@@ -337,6 +345,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				864B824618C70365006959C8 /* ForecastCell.xib in Resources */,
 				8693AA2E18BB134C00D2F3BF /* EditResortCell.xib in Resources */,
 				86FFF3E1189D85B800BF1185 /* InfoPlist.strings in Resources */,
 				8670270918B146BF002C9D96 /* ResortDetailViewController.xib in Resources */,
@@ -407,6 +416,7 @@
 				86934AA118B3374C00A4BA25 /* Temperature.m in Sources */,
 				86FFF3E3189D85B800BF1185 /* main.m in Sources */,
 				8670270418B1445A002C9D96 /* ResortCell.m in Sources */,
+				864B824418C702FC006959C8 /* ForecastCell.m in Sources */,
 				8693AA3218BB197500D2F3BF /* AddResortsViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

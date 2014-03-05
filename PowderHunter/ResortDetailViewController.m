@@ -7,11 +7,14 @@
 //
 
 #import "ResortDetailViewController.h"
+#import "ForecastCell.h"
 #import "RTSpinKitView.h"
 #import "MBProgressHUD.h"
 #import <MapKit/MapKit.h>
 
-@interface ResortDetailViewController ()
+static NSString *ForecastCellIdentifier = @"ForecastCell";
+
+@interface ResortDetailViewController () <UICollectionViewDataSource, UICollectionViewDelegate>
 
 -(void)populateView;
 @property (weak, nonatomic) IBOutlet UILabel *currentWeatherLabel;
@@ -22,6 +25,7 @@
 @property (weak, nonatomic) IBOutlet UILabel *baseDepthLabel;
 @property (weak, nonatomic) IBOutlet UILabel *snowConditionsLabel;
 
+@property (weak, nonatomic) IBOutlet UICollectionView *forecastCollectionView;
 - (IBAction)onViewLocationOnMapButton:(UIButton *)sender;
 @end
 
@@ -41,6 +45,8 @@
     [super viewDidLoad];
     self.title = self.resort.name;
 
+    UINib *forecastCellNib = [UINib nibWithNibName:ForecastCellIdentifier bundle:nil];
+    [self.forecastCollectionView registerNib:forecastCellNib forCellWithReuseIdentifier:ForecastCellIdentifier];
     
     RTSpinKitView *spinner = [[RTSpinKitView alloc] initWithStyle:RTSpinKitViewStylePulse color:[UIColor whiteColor]];
     
@@ -83,6 +89,19 @@
     UIViewController *vc = [[UIViewController alloc] init];
     vc.view = mapView;
     [self.navigationController pushViewController:vc animated:YES];
+}
+
+- (NSInteger)collectionView:(UICollectionView *)collectionView numberOfItemsInSection:(NSInteger)section
+{
+    return self.resort.forecasts.count;
+}
+
+- (UICollectionViewCell *)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath
+{
+    ForecastCell *forecastCell = [collectionView dequeueReusableCellWithReuseIdentifier:ForecastCellIdentifier
+                                                                           forIndexPath:indexPath];
+    forecastCell.forecast = self.resort.forecasts[indexPath.row];
+    return forecastCell;
 }
 
 @end

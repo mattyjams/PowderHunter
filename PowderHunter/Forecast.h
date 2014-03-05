@@ -10,6 +10,8 @@
 
 @interface Forecast : NSObject
 
+@property (strong, nonatomic) NSString *iconBaseURL;
+
 @property (strong, nonatomic, readonly) NSDate *date;
 @property (strong, nonatomic, readonly) NSString *dayOfWeek;
 

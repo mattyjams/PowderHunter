@@ -105,4 +105,22 @@
     return self;
 }
 
+- (NSString *)dayIcon
+{
+    if (_dayIcon != nil) {
+        return [self.iconBaseURL stringByAppendingFormat:@"/%@", _dayIcon];
+    }
+    
+    return nil;
+}
+
+- (NSString *)nightIcon
+{
+    if (_nightIcon != nil) {
+        return [self.iconBaseURL stringByAppendingFormat:@"/%@", _nightIcon];
+    }
+    
+    return nil;
+}
+
 @end
